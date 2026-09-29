@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+   <link rel="stylesheet" href="styel.css">
+</head>
+<body>
+    <div class="control-buttons">
+        <h6>Start Game</h6>
+    </div>
+    <!-- 1. معلومات اللعبة -->
+    <div class="info-container">
+        <div class="name">
+            Hello: <span></span>
+        </div>
+        <div class="tries">
+            Wrong Tries: <span>0</span>
+        </div>
+    </div>
+
+    <!-- 2. الكروت -->
+    <div class="memory-game-blocks">
+        
+        <div class="game-block " data-technology="angular">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/Custom-shape-tool_34547.png" alt="angular">
+            </div>
+        </div>
+        <div class="game-block" data-technology="angular">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/Custom-shape-tool_34547.png" alt="angular">
+            </div>
+        </div>
+
+        <div class="game-block" data-technology="css3">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/file_type_css_icon_130661.png" alt="css3">
+            </div>
+        </div>
+        <div class="game-block" data-technology="css3">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/file_type_css_icon_130661.png" alt="css3">
+            </div>
+        </div>
+
+        <div class="game-block" data-technology="html5">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/file_type_html_icon_130541.png" alt="html5">
+            </div>
+        </div>
+        <div class="game-block" data-technology="html5">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/file_type_html_icon_130541.png" alt="html5">
+            </div>
+        </div>
+
+        <div class="game-block" data-technology="nodejs">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/nodejs_original_wordmark_logo_icon_146412.png" alt="nodejs">
+            </div>
+        </div>
+        <div class="game-block" data-technology="nodejs">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/nodejs_original_wordmark_logo_icon_146412.png" alt="nodejs">
+            </div>
+        </div>
+
+        <div class="game-block" data-technology="php">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/php_plain_logo_icon_146397.png" alt="php">
+            </div>
+        </div>
+        <div class="game-block" data-technology="php">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/php_plain_logo_icon_146397.png" alt="php">
+            </div>
+        </div>
+
+        <div class="game-block" data-technology="postgres">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/postgre_brands_icon_256592.png" alt="postgres">
+            </div>
+        </div>
+        <div class="game-block" data-technology="postgres">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/postgre_brands_icon_256592.png" alt="postgres">
+            </div>
+        </div>
+
+        <div class="game-block" data-technology="rabbitmq">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/rabbitmq_logo_icon_170812.png" alt="rabbitmq">
+            </div>
+        </div>
+        <div class="game-block" data-technology="rabbitmq">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/rabbitmq_logo_icon_170812.png" alt="rabbitmq">
+            </div>
+        </div>
+
+        <div class="game-block" data-technology="react">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/react_original_wordmark_logo_icon_146375.png" alt="react">
+            </div>
+        </div>
+        <div class="game-block" data-technology="react">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/react_original_wordmark_logo_icon_146375.png" alt="react">
+            </div>
+        </div>
+
+        <div class="game-block" data-technology="redis">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/redis_plain_wordmark_logo_icon_146367.png" alt="redis">
+            </div>
+        </div>
+        <div class="game-block" data-technology="redis">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/redis_plain_wordmark_logo_icon_146367.png" alt="redis">
+            </div>
+        </div>
+
+        <div class="game-block" data-technology="vuejs">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/vuejs_original_wordmark_logo_icon_146305.png" alt="vuejs">
+            </div>
+        </div>
+        <div class="game-block" data-technology="vuejs">
+            <div class="face front"></div>
+            <div class="face back">
+                <img src="amges/vuejs_original_wordmark_logo_icon_146305.png" alt="vuejs">
+ 
+    </div>
+    </div> <!-- اقفلي الكروت هنا -->
+
+    <div class="congrats-popup" id="congrats-popup">
+      <div class="congrats-box">
+        <h2>🎉 برافو عليكِ 🎉</h2>
+        <p id="congrats-text"></p>
+        <button id="play-again">إلعبي تاني</button>
+      </div>
+    </div>
+
+    <audio id="success" src="freesound_community-success-1-6297.mp3" preload="auto"></audio>
+    <audio id="fail" src="fail.mp3" preload="auto"></audio>
+
+
+    <script src="main.js"></script>
+</body>
+</html>

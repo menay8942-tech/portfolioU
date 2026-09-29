@@ -1,0 +1,172 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Tahoma, sans-serif;
+    margin: 0;
+    padding: 10px;
+}
+.control-buttons{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(244, 3, 95, 0.9);
+}
+.control-buttons h6{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f44336;
+    color: #fff;
+    padding: 15px 25px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* حاوية المعلومات */
+.info-container {
+    width: 100%;
+    max-width: 1080px;
+    margin: 20px auto 0;
+    background-color: #F1F1F1;
+    padding: 20px;
+    font-size: 24px;
+    overflow: hidden;
+    border: 2px solid #2196f3;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* حاوية الكروت */
+.memory-game-blocks {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    justify-content: center;
+}
+
+.memory-game-blocks.no-clicking {
+    pointer-events: none;
+}
+
+/* شكل الكارت */
+.memory-game-blocks .game-block {
+    height: 150px;
+    transition: transform .5s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    flex: 0 0 calc(25% - 20px);
+    margin: 0 10px 20px;
+}
+
+.memory-game-blocks .game-block .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 5px solid #2196f3;
+}
+
+.memory-game-blocks .game-block .front {
+    background-color: #333;
+    line-height: 150px;
+}
+
+.memory-game-blocks .game-block .front:before {
+    content: '?';
+    color: #FFF;
+    font-size: 80px;
+    font-weight: bold;
+}
+
+.memory-game-blocks .game-block .back {
+    background-color: #607D8B;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.memory-game-blocks .game-block .back img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.memory-game-blocks .game-block.is-flipped,
+.memory-game-blocks .game-block.has-match {
+    transform: rotateY(180deg);
+}
+
+.congrats-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 20px;
+}
+.congrats-popup.show {
+  display: flex;
+}
+.congrats-box {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 15px;
+  text-align: center;
+  animation: pop 0.4s ease;
+  width: 100%;
+  max-width: 400px;
+}
+.congrats-box h2 { color: #2196f3; margin-bottom: 15px; }
+.congrats-box p { font-size: 18px; margin-bottom: 20px; }
+.congrats-box button {
+  background: #2196f3;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+@keyframes pop {
+  0% { transform: scale(0.5); }
+  100% { transform: scale(1); }
+}
+
+/* ===== للموبايل ===== */
+@media (max-width: 768px) {
+    .info-container { font-size: 18px; }
+    .memory-game-blocks .game-block {
+        flex: 0 0 calc(33.333% - 20px);
+        height: 120px;
+    }
+    .memory-game-blocks .game-block .front { line-height: 120px; }
+    .memory-game-blocks .game-block .front:before { font-size: 60px; }
+}
+
+@media (max-width: 480px) {
+    .memory-game-blocks .game-block {
+        flex: 0 0 calc(50% - 20px);
+        height: 110px;
+    }
+    .memory-game-blocks .game-block .front { line-height: 110px; }
+    .info-container { font-size: 16px; padding: 15px; }
+}
