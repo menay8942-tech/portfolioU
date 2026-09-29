@@ -1,5 +1,5 @@
 document.querySelector(".control-buttons h6").onclick = function () {
-  let yourName = prompt("Whats Your Name?");
+  let yourName = prompt("ما هو اسمك?");
   if (yourName == null || yourName == "") {
     document.querySelector(".name span").innerHTML = `Unknown`;
   } else {
